@@ -1,5 +1,7 @@
 package br.com.opaio.SistemaGB.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -12,5 +14,7 @@ public interface VendedorRepository extends PagingAndSortingRepository<VendedorM
 	
 	@Query("select v from VendedorModel v where v.cpf=:cpf")
 	public VendedorModel buscarPorCpf(@Param("cpf") Integer cpf);
+	
+	public List<VendedorModel> findByCodigo(VendedorModel vendedor);
 	
 }

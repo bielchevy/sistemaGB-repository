@@ -2,16 +2,19 @@ package br.com.opaio.SistemaGB.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="VENDEDOR")
 public class VendedorModel {
 	
 	@Id
-	//@GeneratedValue
+	@GeneratedValue
 	@Column(name="COD_VENDEDOR")
 	private Long codigo;
 	

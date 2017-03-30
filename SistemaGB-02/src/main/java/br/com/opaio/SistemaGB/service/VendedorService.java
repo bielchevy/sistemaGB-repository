@@ -21,6 +21,19 @@ public class VendedorService  {
 		return (List<VendedorModel>) vendedorRepository.findAll();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public VendedorModel findByCodigo(VendedorModel vendedor) {
+		return vendedorRepository.findOne(vendedor.getCodigo());
+	}
+	
+	public List<VendedorModel> buscarPorCodigo(VendedorModel vendedor) {
+		return (List<VendedorModel>) vendedorRepository.findAll();
+	}
+	
+	
+	public void salvar(VendedorModel vendedor){
+		vendedorRepository.save(vendedor);
+	}
 
 }
 
