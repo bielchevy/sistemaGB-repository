@@ -9,12 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendedorPesquisaComponent implements OnInit {
 
+  vendedor: VendedorVO;
+      
+
   constructor(private vendedorService: VendedorService) { }
 
   public vendedorPesquisa: VendedorVO[];
 
   ngOnInit() {
-    this.vendedorService.buscarTodos().then(u => this.vendedorPesquisa = u);
+    this.vendedorService.buscarTodosAtivos().then(u => this.vendedorPesquisa = u);
+  }
+
+  private deletar(codigo: number): void{
+    this.vendedor = new VendedorVO();
+      let paramVendedor = new VendedorVO(codigo); 
+    this.vendedorService.deletar(paramVendedor).then((data: VendedorVO) => {
+    }).catch((e) => {
+      console.error(e);
+    })
   }
 
 

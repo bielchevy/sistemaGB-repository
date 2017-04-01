@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class VendedorManterComponent implements OnInit {
 
-
+  vendedor: VendedorVO;
   constructor(
     private vendedorService: VendedorService,
     private route: ActivatedRoute,
@@ -23,27 +23,24 @@ export class VendedorManterComponent implements OnInit {
     
     this.route.params.forEach((params: Params) =>{
       let id: number = +params['id'];
-      let vendedor = new VendedorVO(id);
+      this.vendedor = new VendedorVO();
+      let paramVendedor = new VendedorVO(id);
+      
+      if(id){
+        this.vendedorService.buscarPorCodigo(paramVendedor).then((vendedor: VendedorVO) => { 
+          this.vendedor = vendedor});
+        console.log(this.vendedor);
+        console.log(paramVendedor);   
+      }
 
-      this.vendedorService.bucarPorCodigo(vendedor).then((vendedor: VendedorVO) => { console.log(vendedor)} );
     });
   }
 
-  
-    getFormGroupClass(isValid: boolean, isPristine: boolean): {} {
-        return {
-            'form-group': true,
-            'has-danger': !isValid && !isPristine,
-            'has-success': isValid && !isPristine
-        };
-    }
-
-    getFormControlClass(isValid: boolean, isPristine: boolean): {} {
-        return {
-            'form-control': true,
-            'form-control-danger': !isValid && !isPristine,
-            'form-control-success': isValid && !isPristine
-        };
-    }
+  private salvar(): void{
+    this.vendedorService.salvar(this.vendedor).then((data: VendedorVO) => {
+    }).catch((e) => {
+      console.error(e);
+    })
+  }
 
 }

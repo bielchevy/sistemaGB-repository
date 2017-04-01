@@ -19,8 +19,24 @@ export class VendedorService extends BaseProvider {
        .then(response => response.json() as VendedorVO[]).catch(this.handlerError);
    }
 
-    public bucarPorCodigo(vendedor: VendedorVO): Promise<VendedorVO>{
-       return this.http.post(BaseProvider.getBaseAPI() + 'vendedor/bucarPorCodigo', JSON.stringify(vendedor),
+   
+   public buscarTodosAtivos(): Promise<Array<VendedorVO>>{
+       return this.http.get(BaseProvider.getBaseAPI() + 'vendedor/buscarTodosAtivos').toPromise()
+       .then(response => response.json() as VendedorVO[]).catch(this.handlerError);
+   }
+
+    public buscarPorCodigo(vendedor: VendedorVO): Promise<VendedorVO>{
+       return this.http.post(BaseProvider.getBaseAPI() + 'vendedor/buscarPorCodigo', JSON.stringify(vendedor),
+       this.options).toPromise().then((response: Response) => {return response.json() as VendedorVO;}).catch(this.handlerError);
+   }
+
+   public salvar(vendedor: VendedorVO): Promise<VendedorVO>{
+       return this.http.post(BaseProvider.getBaseAPI() + 'vendedor/salvar', JSON.stringify(vendedor),
+       this.options).toPromise().then((response: Response) => {return response.json() as VendedorVO;}).catch(this.handlerError);
+   }
+
+      public deletar(vendedor: VendedorVO): Promise<VendedorVO>{
+       return this.http.post(BaseProvider.getBaseAPI() + 'vendedor/deletar', JSON.stringify(vendedor),
        this.options).toPromise().then((response: Response) => {return response.json() as VendedorVO;}).catch(this.handlerError);
    }
 

@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+/*.ng-valid[required]{
+    border: 2px solid blue;
+}
+.ng-invalid:not(form){
+    border: 2px solid red;
+}*/
+
+.margin-10 {
+    margin: 10px 0;
+}
+#wrapper, .sidebar{
+    background: #012345;
+}
+.sidebar ul li{
+    background: #012345;
+    border: 1px solid #123456;
+}
+.sidebar a, .navbar-default a{
+    color:#fff;
+}
+
+.sidebar ul li a.active{
+    background: #123456;
+}
+.nav>li>a:focus, .nav>li>a:hover { 
+    background: #234567;
+}
+
+.navbar-default {
+    background-color: #012345;
+    border-color: #123456;
+}
+#page-wrapper{
+    background: #f1f1f1;
+}
+hr{
+    border-bottom:  1px solid #ccc;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+.navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #89abcd;
+}

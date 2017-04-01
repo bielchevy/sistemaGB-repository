@@ -1,5 +1,6 @@
 package br.com.opaio.SistemaGB.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public class VendedorService  {
 		return (List<VendedorModel>) vendedorRepository.findAll();
 	}
 	
+	public List<VendedorModel> buscarTodosAtivos() {
+		return (List<VendedorModel>) vendedorRepository.findByDataRetiradaIsNullOrderByNome();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public VendedorModel findByCodigo(VendedorModel vendedor) {
 		return vendedorRepository.findOne(vendedor.getCodigo());
@@ -32,6 +37,19 @@ public class VendedorService  {
 	
 	
 	public void salvar(VendedorModel vendedor){
+		
+		if(vendedor.getDataCadastro() == null){
+			vendedor.setDataCadastro(new Date());
+		}
+		vendedorRepository.save(vendedor);
+	}
+	
+	public void deletar(VendedorModel vendedor){
+		
+		vendedor = vendedorRepository.findOne(vendedor.getCodigo());
+		if(vendedor.getDataCadastro() != null){
+			vendedor.setDataRetirada(new Date());
+		}
 		vendedorRepository.save(vendedor);
 	}
 

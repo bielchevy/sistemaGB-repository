@@ -3,7 +3,7 @@
                 <div class="col-lg-12">
                     <h3>Pesquisa Vendedor</h3>
                    <small>Lista de usuarios cadastrados.</small>
-                   <h1 class="page-header"> </h1>
+                   <hr>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -12,10 +12,11 @@
               
                 <div class="col-lg-12">
 
-                    <div class="header-buttons">
-                        <a routerLink="/sitemaGB/administrativo/vendedor-manter" title="Novo Vendedor" class="btn btn-primary"><i class="icon-user icon-white fa fa-plus"></i> Novo Vendedor</a>
+                    <div class="header-buttons margin-10">
+                        <a routerLink="/sitemaGB/administrativo/vendedor-manter" title="Novo Vendedor" class="btn btn-primary pull-right"><i class="icon-user icon-white fa fa-plus"></i> Novo Vendedor</a>
+                    
+                        <div class="clearfix"></div>
                     </div>
-
                     <div class="panel panel-default">
                         <div class="panel-heading">
                         </div>
@@ -28,18 +29,22 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-vendedores">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th>
                                         <th>Nome</th>
                                         <th>CPF</th>
                                         <th>Telefone</th>
+                                        <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let v of vendedorPesquisa" [routerLink]="['/sitemaGB/administrativo/vendedor-manter', v.codigo]" class="odd gradeX">
-                                        <td>{{ v.codigo }}</td>
+                                   <!-- <tr *ngFor="let v of vendedorPesquisa" [routerLink]="['/sitemaGB/administrativo/vendedor-manter', v.codigo]" class="odd gradeX"> -->
+                                    <tr *ngFor="let v of vendedorPesquisa"  class="odd gradeX">
                                         <td>{{ v.nome }}</td>
                                         <td>{{ v.cpf }}</td>
                                         <td>{{ v.telefone }}</td>
+                                        <td>
+                                            <a [routerLink]="['/sitemaGB/administrativo/vendedor-manter', v.codigo]" title="Editar" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span></a>
+                                            <button type="button" title="Excluir" class="btn btn-danger btn-xs"><span class="fa fa-trash-o" (click)="deletar(v.codigo)"></span></button>
+                                        </td>
                                     </tr>
 
                                 </tbody>

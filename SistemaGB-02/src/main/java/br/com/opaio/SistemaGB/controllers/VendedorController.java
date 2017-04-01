@@ -15,34 +15,52 @@ import br.com.opaio.SistemaGB.service.VendedorService;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/sistemaGB")
 public class VendedorController
 {
 
 	@Autowired
 	private VendedorService vendedorService;
 	
-	@GetMapping("sistemaGB/vendedor/buscarTodos")
+	@GetMapping("vendedor/buscarTodos")
 	public List<VendedorModel> buscarTodos() throws Exception {
 
 	return vendedorService.buscarTodos();
 	
 	}
 	
-	@PostMapping("sistemaGB/vendedor/salvar")
-	public void salvar(@RequestBody VendedorModel vendedor) throws Exception {
+	@GetMapping("vendedor/buscarTodosAtivos")
+	public List<VendedorModel> buscarTodosAtivos() throws Exception {
 
-		vendedorService.salvar(vendedor);
+	return vendedorService.buscarTodosAtivos();
 	
 	}
 	
-	@PostMapping("sistemaGB/vendedor/buscarPorCodigo")
+	@PostMapping("vendedor/salvar")
+	public String salvar(@RequestBody VendedorModel vendedor) throws Exception {
+
+		vendedorService.salvar(vendedor);
+		
+		return "Usuario"+vendedor.getNome()+"salvo com sucesso!";
+	
+	}
+	
+	@PostMapping("vendedor/buscarPorCodigo")
 	public VendedorModel findByCodigo(@RequestBody VendedorModel vendedor) throws Exception {
 
 		return vendedorService.findByCodigo(vendedor);
 	
 	}
 	
-	@RequestMapping("/")
+	@PostMapping("vendedor/deletar")
+	public String deletar(@RequestBody VendedorModel vendedor) throws Exception {
+
+		vendedorService.deletar(vendedor);
+		
+		return "Usuario"+vendedor.getNome()+"deletado com sucesso!";
+	
+	}
+	
 	public String index() {
 	      return "home/index";
 	}

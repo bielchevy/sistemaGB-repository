@@ -17,4 +17,6 @@ public interface VendedorRepository extends PagingAndSortingRepository<VendedorM
 	
 	public List<VendedorModel> findByCodigo(VendedorModel vendedor);
 	
+	public List<VendedorModel> findByDataRetiradaIsNullOrderByNome();
+	
 }
