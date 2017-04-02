@@ -17,7 +17,7 @@ export class VendedorPesquisaComponent implements OnInit {
   public vendedorPesquisa: VendedorVO[];
 
   ngOnInit() {
-    this.vendedorService.buscarTodosAtivos().then(u => this.vendedorPesquisa = u);
+    this.vendedorService.buscarTodos().then(u => this.vendedorPesquisa = u);
   }
 
   private deletar(codigo: number): void{

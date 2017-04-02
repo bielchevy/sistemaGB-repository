@@ -1,20 +1,19 @@
 import { GenericVO } from './GenericVO';
-export class VendedorVO extends GenericVO{
-    public codigo: number;
-    public nomeVendedor: string;
-    public cpf: string;
-    public numeroTelefone: number;
+
+export class VendedorVO extends GenericVO {
+
 
     constructor(
-        codigo?: number,
-        nomeVendedor?: string,
-        cpf?: string,
-        numeroTelefone?: number
-    ){
+        public codigo?: number,
+        public nomeVendedor?: string,
+        public cpf?: string,
+        public numeroTelefone?: number,
+        public dataRetirada?: Date
+    ) {
         super();
-        this.codigo = codigo;
-        this.nomeVendedor = nomeVendedor;
-        this.cpf = cpf;
-        this.numeroTelefone = numeroTelefone;
     }
+
+
+
+
 }

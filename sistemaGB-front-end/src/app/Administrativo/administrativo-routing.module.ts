@@ -1,3 +1,4 @@
+import { VendedorVO } from './../../vo/VendedorVO';
 import { VendedorManterComponent } from './vendedor/vendedor-manter/vendedor-manter.component';
 import { VendedorPesquisaComponent } from './vendedor/vendedor-pesquisa/vendedor-pesquisa.component';
 
