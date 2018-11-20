@@ -37,13 +37,13 @@
                                 </thead>
                                 <tbody>
                                    <!-- <tr *ngFor="let v of vendedorPesquisa" [routerLink]="['/sitemaGB/administrativo/vendedor-manter', v.codigo]" class="odd gradeX"> -->
-                                    <tr *ngFor="let v of vendedorPesquisa"  class="odd gradeX">
+                                    <tr *ngFor="let v of vendedorPesquisa"  class="odd gradeX"  [ngClass]="{'danger': v.dataRetirada != null}">
                                         <td>{{ v.nome }}</td>
                                         <td>{{ v.cpf }}</td>
                                         <td>{{ v.telefone }}</td>
                                         <td>
                                             <a [routerLink]="['/sitemaGB/administrativo/vendedor-manter', v.codigo]" title="Editar" class="btn btn-primary btn-xs"><span class="fa fa-pencil"></span></a>
-                                            <button type="button" title="Excluir" class="btn btn-danger btn-xs"><span class="fa fa-trash-o" (click)="deletar(v.codigo)"></span></button>
+                                             <!-- <button type="button" title="Excluir" class="btn btn-danger btn-xs"><span class="fa fa-trash-o" (click)="deletar(v.codigo)"></span></button>-->
                                         </td>
                                     </tr>
 

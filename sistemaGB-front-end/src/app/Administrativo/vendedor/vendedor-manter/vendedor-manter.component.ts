@@ -1,4 +1,5 @@
 
+
 import { Constantes } from './../../../../util/Constantes';
 import { VendedorVO } from './../../../../vo/VendedorVO';
 import { VendedorService } from './../../../../provider/vendedor.servico';
@@ -9,7 +10,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-vendedor-manter',
   templateUrl: './vendedor-manter.component.html',
-  styleUrls: ['./vendedor-manter.component.css']
+  styleUrls: ['./vendedor-manter.component.css'],
 })
 export class VendedorManterComponent implements OnInit {
 

@@ -9,10 +9,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DefaultComponent } from './default/default.component';
+import { MascarasDirective } from './diretivas/mascaras.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MascarasDirective
   ],
   imports: [
     AppRoutingModule,

@@ -1,3 +1,4 @@
+import { MaskDirective } from './../../util/Mask.Directive';
 import { VendedorVO } from './../../vo/VendedorVO';
 import { VendedorManterComponent } from './vendedor/vendedor-manter/vendedor-manter.component';
 import { VendedorPesquisaComponent } from './vendedor/vendedor-pesquisa/vendedor-pesquisa.component';
@@ -29,6 +30,6 @@ const administradorRoutes: Routes = [
     exports:[
         RouterModule
     ],
-    providers: [VendedorService]
+    providers: [VendedorService, MaskDirective]
 })
 export class AdministrativoRoutingModule {}
